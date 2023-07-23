@@ -63,6 +63,7 @@ function gameEngine() {
 
         inputDir = { x: 0, y: 0 };
         alert("Game Over press any key to play again");
+        window.location.reload();
 
         snakeArr = [{ x: 13, y: 15 }];
         score = 0;
@@ -153,47 +154,71 @@ window.addEventListener('keydown', e => {
 });
 
 
+var mobileBtn = document.getElementsByClassName('btn-class');
+var arrowRight = document.getElementById('arrow-right')
+var arrowUp = document.getElementById('arrow-up')
+var arrowLeft = document.getElementById('arrow-left');
+var arrowDown = document.getElementById('arrow-down');
+
+for (let i = 0; i < mobileBtn.length; i++) {
+
+    mobileBtn[i].addEventListener('click', () => {
+
+        if (mobileBtn[i].innerText == '↑') {
+
+            inputDir.x = 0;
+            inputDir.y = -1;
+
+        } else if (mobileBtn[i].innerText == '→') {
+
+            inputDir.x = 1;
+            inputDir.y = 0;
+
+        } else if (mobileBtn[i].innerText == '↓') {
+
+            inputDir.x = 0;
+            inputDir.y = 1;
+
+        } else if (mobileBtn[i].innerText == '←') {
+
+            inputDir.x = -1;
+            inputDir.y = 0;
+
+        };
+
+    });
+
+};
 
 
+var btnForSpeed = document.getElementsByClassName('btn-for-speed-class');
+var easyBtn = document.getElementById('easy-btn');
+var normalBtn = document.getElementById('normal-btn');
+var hardBtn = document.getElementById('hard-btn');
+var legendBtn = document.getElementById('legend-btn');
 
+for (let i = 0; i < btnForSpeed.length; i++) {
 
+    btnForSpeed[i].addEventListener('click', () => {
 
+        if (btnForSpeed[i].innerText == 'Easy') {
 
+            speed = 5;
 
+        } else if (btnForSpeed[i].innerText == 'Normal') {
 
+            speed = 8;
 
+        } else if (btnForSpeed[i].innerText == 'Hard') {
 
+            speed = 12;
 
+        } else if (btnForSpeed[i].innerText == 'Legend') {
 
+            speed = 16;
 
-    // document.body.onload = () => {
+        };
 
-    //     document.body.addEventListener('keyup', snakeMovementFunction);
+    });
 
-    // };
-
-    // var getSnakeMovementDiv = document.getElementById('div-for-moving-snake');
-
-    // function snakeMovementFunction(e) {
-
-    //     if (e.code == "ArrowUp") {
-
-    //         // alert('ArrowUp');
-
-    //         getSnakeMovementDiv.style.
-
-    //     } else if (e.code == "ArrowDown") {
-
-    //         // alert('ArrowDown');
-
-    //     } else if (e.code == "ArrowRight") {
-
-    //         // alert('ArrowRight');
-
-    //     } else if (e.code == "ArrowLeft") {
-
-    //         // alert('ArrowLeft');
-
-    //     }
-
-    // };
+};
